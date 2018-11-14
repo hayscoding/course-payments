@@ -38,7 +38,19 @@ const updateOrder = async (orderId, properties) => {
 
 // List all products.
 const listProducts = async () => {
-  return await stripe.products.list({limit: 3, type: 'good'});
+  const productData = await stripe.products.list({limit: 3, type: 'good'});
+  const products = Object.entries(productData.data)
+  const activeProducts = []
+  // console.log('productData: ', productData)
+  // console.log('products: ', products)
+
+  for(let [index, product] of products) {
+    if(product.active)
+      activeProducts.push(product)
+  }
+
+  console.log('ACTIVE PRODUCTS: ', activeProducts)
+  return activeProducts
 };
 
 // Retrieve a product by ID.
@@ -49,13 +61,13 @@ const retrieveProduct = async productId => {
 // Validate that products exist.
 const productsExist = productList => {
   const validProducts = ['clone-insta-course', 'increment', 'shirt', 'pins'];
-  return productList.data.reduce((accumulator, currentValue) => {
+  return productList.reduce((accumulator, currentValue) => {
     return (
       accumulator &&
-      productList.data.length === 3 &&
+      productList.length === 1 &&
       validProducts.includes(currentValue.id)
     );
-  }, !!productList.data.length);
+  }, !!productList.length);
 };
 
 exports.orders = {
