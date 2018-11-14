@@ -146,35 +146,47 @@ class Store {
     const orderItems = document.getElementById('order-items');
     const orderTotal = document.getElementById('order-total');
     let currency;
+
     // Build and append the line items to the order summary.
     for (let [id, product] of Object.entries(this.products)) {
-      const randomQuantity = (min, max) => {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      };
-      const quantity = randomQuantity(1, 3);
-      let sku = product.skus.data[0];
-      let skuPrice = this.formatPrice(sku.price, sku.currency);
-      let lineItemPrice = this.formatPrice(sku.price * quantity, sku.currency);
-      let lineItem = document.createElement('div');
-      lineItem.classList.add('line-item');
-      lineItem.innerHTML = `
-        <img class="image" src="/images/products/${product.id}.png">
-        <div class="label">
-          <p class="product">${product.name}</p>
-          <p class="sku">${Object.values(sku.attributes).join(' ')}</p>
-        </div>
-        <p class="count">${quantity} x ${skuPrice}</p>
-        <p class="price">${lineItemPrice}</p>`;
-      orderItems.appendChild(lineItem);
-      currency = sku.currency;
-      this.lineItems.push({
+      // const randomQuantity = (min, max) => {
+      //   min = Math.ceil(min);
+      //   max = Math.floor(max);
+      //   return Math.floor(Math.random() * (max - min + 1)) + min;
+      // };
+      try {
+        const quantity = 1;
+        let sku = product.skus.data[0];
+        console.log('called', sku)
+        let skuPrice = this.formatPrice(sku.price, sku.currency);
+        let lineItemPrice = this.formatPrice(sku.price * quantity, sku.currency);
+        let lineItem = document.createElement('div');
+
+        lineItem.classList.add('line-item');
+        lineItem.innerHTML = `
+          <img class="image" src="/images/products/${product.id}.png">
+          <div class="label">
+            <p class="product">${product.name}</p>
+            <p class="sku">${Object.values(sku.attributes).join(' ')}</p>
+          </div>
+          <p class="count">${quantity} x ${skuPrice}</p>
+          <p class="price">${lineItemPrice}</p>`;
+        orderItems.appendChild(lineItem);
+
+        currency = sku.currency;
+        console.log('this.lineItems', this.lineItems)
+
+        this.lineItems.push({
         product: product.id,
         sku: sku.id,
         quantity,
-      });
+        });
+      } catch (error) {
+        console.log('failed at displayOrderSummary');
+      }
     }
+
+
     // Add the subtotal and total to the order summary.
     const total = this.formatPrice(this.getOrderTotal(), currency);
     orderTotal.querySelector('[data-subtotal]').innerText = total;
