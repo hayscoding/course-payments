@@ -41,15 +41,13 @@ const listProducts = async () => {
   const productData = await stripe.products.list({limit: 3, type: 'good'});
   const products = Object.entries(productData.data)
   const activeProducts = []
-  // console.log('productData: ', productData)
-  // console.log('products: ', products)
 
   for(let [index, product] of products) {
     if(product.active)
       activeProducts.push(product)
   }
 
-  console.log('ACTIVE PRODUCTS: ', activeProducts)
+  // console.log('ACTIVE PRODUCTS: ', activeProducts)
   return activeProducts
 };
 
