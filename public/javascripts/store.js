@@ -156,7 +156,6 @@ class Store {
       try {
         const quantity = 1;
         let sku = product.skus.data[0];
-        console.log('called', sku)
         let skuPrice = this.formatPrice(sku.price, sku.currency);
         let lineItemPrice = this.formatPrice(sku.price * quantity, sku.currency);
         let lineItem = document.createElement('div');
@@ -173,7 +172,6 @@ class Store {
         orderItems.appendChild(lineItem);
 
         currency = sku.currency;
-        console.log('this.lineItems', this.lineItems)
 
         this.lineItems.push({
         product: product.id,
