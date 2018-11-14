@@ -638,6 +638,9 @@
     if (paymentMethod === 'sepa_debit' && bankName) {
       label = `Debit ${amount} from ${bankName}`;
     }
+
+    console.log(amount)
+
     submitButton.innerText = label;
   };
 
