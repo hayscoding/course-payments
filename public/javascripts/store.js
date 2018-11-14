@@ -56,6 +56,7 @@ class Store {
   async loadProducts() {
     const productsResponse = await fetch('/products');
     const products = (await productsResponse.json()).data;
+    console.log('PRODUCTS: ', products)
     products.forEach(product => (this.products[product.id] = product));
   }
 
