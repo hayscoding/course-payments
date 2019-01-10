@@ -17,10 +17,23 @@ const router = express.Router();
 const stripe = require('stripe')(config.stripe.secretKey);
 stripe.setApiVersion(config.stripe.apiVersion);
 
+
+//UPDATES
+// //#####
+router.get('/getter',function(req, res, next){
+  res.json({
+    name:  req.query.tagId,
+  });
+  next();
+});
+// //#####
+
+
 // Render the main app HTML.
 router.get('/', (req, res) => {
   res.render('index.html');
 });
+
 
 /**
  * Stripe integration to accept all types of payments with 3 POST endpoints.
