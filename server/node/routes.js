@@ -20,9 +20,9 @@ stripe.setApiVersion(config.stripe.apiVersion);
 
 //UPDATES
 // //#####
-router.get('/getter',function(req, res, next){
+router.get('/pay',function(req, res, next){
   res.json({
-    name:  req.query.tagId,
+    userId:  req.query.userId,
   });
   next();
 });
