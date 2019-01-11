@@ -25,10 +25,10 @@ stripe.setApiVersion(config.stripe.apiVersion);
 
 
 // // Render the main app HTML.
-// router.get('/', (req, res) => {
-//   const userId = req.query.userId
-//   res.render('index.pug', {userId: 'some userId'});
-// });
+router.get('/', (req, res) => {
+  const userId = req.query.userId
+  res.render('index.pug', {userId: 'some userId'});
+});
 
 
 /**

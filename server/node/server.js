@@ -29,20 +29,22 @@ app.use(
 );
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, '../../public')));
 app.engine('html', require('ejs').renderFile);
 // app.set('view engine', 'html');
 app.set('view engine', 'pug')
 
 // Define routes.
-app.use('/', require('./routes'));
-app.get('/pay',function(req, res, next){
-  res.json({
-    userId: req.query.userId
-  })
+app.get('/pay', (req, res) => {
+  // res.json({
+  //   userId: req.query.userId
+  // })
   // res.redirect()
-  // res.render('index.pug', {userId: 'some userId'});
+  res.render('../public/index.pug', {title: 'some userId', message: 'here is a message'});
 });
+// app.use('/', require('./routes'));
+
+// app.use(express.static(path.join(__dirname, '../../public')));
+
 
 // Start the server on the correct port.
 const server = app.listen(config.port, () => {
