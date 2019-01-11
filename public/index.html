@@ -20,7 +20,6 @@
       <!-- <a class="github" href="https://github.com/stripe/stripe-payments-demo">View on GitHub</a> -->
     </header>
     <div id="checkout">
-      <div>RANDOM TEXT<%= userId %></div>
       <div id="email"></div>
       <div id="payment-request">
         <div id="payment-request-button"></div>
@@ -29,8 +28,8 @@
         <p class="instruction">Complete your shipping and payment details below</p>
         <section>
           <h2>Shipping &amp; Billing Information</h2>
+          <input name="userId" value="<%= userId %>" type="hidden">
           <fieldset class="with-state">
-            <input name="userId" value="<%= userId %>" type="hidden">
             <label>
               <span>Name</span>
               <input name="name" class="field" placeholder="Jenny Rosen" required>
