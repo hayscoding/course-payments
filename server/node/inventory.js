@@ -15,6 +15,8 @@ stripe.setApiVersion(config.stripe.apiVersion);
 
 // Create an order.
 const createOrder = async (currency, items, email, shipping) => {
+  const userId = 'haysstanfordUserID'
+
   return await stripe.orders.create({
     currency,
     items,
@@ -22,6 +24,7 @@ const createOrder = async (currency, items, email, shipping) => {
     shipping,
     metadata: {
       status: 'created',
+      userId: userId,
     },
   });
 };
