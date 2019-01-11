@@ -20,6 +20,7 @@
       <!-- <a class="github" href="https://github.com/stripe/stripe-payments-demo">View on GitHub</a> -->
     </header>
     <div id="checkout">
+      <div id="email"></div>
       <div id="payment-request">
         <div id="payment-request-button"></div>
       </div>
@@ -244,6 +245,11 @@
   <!-- App -->
   <script src="/javascripts/store.js"></script>
   <script src="/javascripts/payments.js"></script>
+  <script type="text/javascript">
+    // make sure to do this onLoad, for example jQuery's $()
+    var str = 'hello there!'
+    document.getElementById("email").innerHTML = str;
+  </script>
 </body>
 
 </html>

@@ -22,16 +22,17 @@ stripe.setApiVersion(config.stripe.apiVersion);
 // //#####
 router.get('/pay',function(req, res, next){
   res.json({
-    userId:  req.query.userId,
-  });
-  next();
+    userId: req.query.userId
+  })
+  res.redirect()
 });
 // //#####
 
 
 // Render the main app HTML.
 router.get('/', (req, res) => {
-  res.render('index.html');
+  const userId = req.query.userId
+  res.render('index.html', {userId: userId});
 });
 
 
