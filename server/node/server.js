@@ -33,6 +33,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.engine('html', require('ejs').renderFile);
 // app.set('view engine', 'html');
 app.set('view engine', 'pug')
+app.set('views','./public/');
 
 // Define routes.
 app.get('/pay', (req, res) => {
@@ -40,7 +41,7 @@ app.get('/pay', (req, res) => {
   //   userId: req.query.userId
   // })
   // res.redirect()
-  res.render('../public/index.pug', {title: 'some userId', message: req.query.userId});
+  res.render('index.pug', {title: 'some userId', message: req.query.userId});
 });
 app.use('/', require('./routes'));
 
