@@ -25,7 +25,7 @@ stripe.setApiVersion(config.stripe.apiVersion);
 
 
 // // Render the main app HTML.
-router.get('/', (req, res) => {
+router.get('/payment', (req, res) => {
   res.render('index.html', {userId: req.query.userId});
   // res.render('index.pug', {userId: 'some userId'});
 });

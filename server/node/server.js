@@ -14,7 +14,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const ngrok = config.ngrok.enabled ? require('ngrok') : null;
 const app = express();
-// app.use(express.static(path.join(__dirname, '../../public')));
+app.use(express.static(path.join(__dirname, '../../public')));
 
 // Setup useful middleware.
 app.use(
