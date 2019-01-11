@@ -36,13 +36,6 @@ app.set('view engine', 'pug')
 app.set('views','./public/');
 
 // Define routes.
-app.get('/pay', (req, res) => {
-  // res.json({
-  //   userId: req.query.userId
-  // })
-  // res.redirect()
-  res.render('index.pug', {title: 'some userId', message: req.query.userId});
-});
 app.use('/', require('./routes'));
 
 
