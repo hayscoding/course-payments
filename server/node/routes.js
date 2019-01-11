@@ -46,7 +46,7 @@ router.post('/orders', async (req, res, next) => {
   let {currency, items, email, shipping} = req.body;
 
   try {
-    let order = await orders.create(currency, items, email, shipping);
+    let order = await orders.create(currency, items, email, shipping, 'HAYS-IS-HERE-NOW');
     return res.status(200).json({order});
   } catch (err) {
     return res.status(500).json({error: err.message});
