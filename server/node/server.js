@@ -14,6 +14,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const ngrok = config.ngrok.enabled ? require('ngrok') : null;
 const app = express();
+app.use(express.static(path.join(__dirname, '../../public')));
 
 // Setup useful middleware.
 app.use(
@@ -41,9 +42,8 @@ app.get('/pay', (req, res) => {
   // res.redirect()
   res.render('../public/index.pug', {title: 'some userId', message: req.query.userId});
 });
-// app.use('/', require('./routes'));
+app.use('/', require('./routes'));
 
-// app.use(express.static(path.join(__dirname, '../../public')));
 
 
 // Start the server on the correct port.
