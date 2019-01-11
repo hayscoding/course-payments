@@ -39,7 +39,7 @@ app.get('/pay', (req, res) => {
   //   userId: req.query.userId
   // })
   // res.redirect()
-  res.render('../public/index.pug', {title: 'some userId', message: 'here is a message'});
+  res.render('../public/index.pug', {title: 'some userId', message: req.query.userId});
 });
 // app.use('/', require('./routes'));
 
