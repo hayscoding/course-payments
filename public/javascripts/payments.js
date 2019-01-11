@@ -240,6 +240,8 @@
         country,
       },
     };
+    const userId = form.querySelector('input[name=userId]').value;
+
     // Disable the Pay button to prevent multiple click events.
     submitButton.disabled = true;
 
@@ -248,7 +250,8 @@
       config.currency,
       store.getOrderItems(),
       email,
-      shipping
+      shipping,
+      userId,
     );
 
     if (payment === 'card') {
