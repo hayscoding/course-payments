@@ -1,9 +1,9 @@
 {
-  "name": "stripe-payments-demo",
+  "name": "course-payments",
   "description": "Sample store accepting universal payments on the web with Stripe Elements, Payment Request, Apple Pay, Google Pay, Microsoft Pay, and the Sources API.",
   "version": "1.0.0",
   "private": true,
-  "author": "Romain Huet",
+  "author": "Hays Stanford",
   "license": "MIT",
   "repository": {
     "type": "git",
