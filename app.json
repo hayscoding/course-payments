@@ -1,7 +1,7 @@
 {
   "name": "Hays Stanford",
   "description":
-    "Sample store accepting universal payments on the web with Stripe Elements, Payment Request, Apple Pay, Google Pay, and the Sources API.",
+    "no longer in use",
   "repository": "https://github.com/stripe/stripe-payments-demo",
   "logo": "https://haysstanfordpay.herokuapp.com/images/logo.png",
   "keywords": [
